@@ -40,3 +40,37 @@ CREATE TABLE Real_Estate(
 INSERT INTO Real_Estate(Title,Price, Author, Type, Image, Area, Detail, DateCreate, Address) 
 VALUES("BÁN ĐẤT Ở BÌNH PHAN",530000000,"Nguyễn Văn A", "Bất Động Sản","https://cdn.batdongsan.vn/queue/upload/file/realestate/2023/12/199095/638379/14-168-82-229-dat.jpg",
 985, """BÁN ĐẤT Ở BÌNH PHAN 1000M2 , CHỢ GẠO, TIỀN GIANG, GẦN BỜ SÔNG GIA ĐÌNH CẦN BÁN GẤP Ạ, GIÁ CẢ CÓ THỂ THƯƠNG LƯỢNG""", 2023-9-8, "XÃ BÌNH PHAN ,Huyên Chơ Gạo tỉnh Tiền Giang");
+
+INSERT INTO Real_Estate(Title,Price, Author, Type, Image, Area, Detail, DateCreate, Address) 
+VALUES("CHỦ GẤP BÁN TRƯỚC TẾT LÊ HỒNG PHONG QUẬN 5 RA MẶT TIỀN ĐƯỜNG 15M",7350000000,"Phước Hân", "Bất Động Sản","https://cdn.batdongsan.vn/queue/upload/file/realestate/2023/12/199094/638378/113-172-162-253-58.jpg",
+41, """Diện tích công nhận 41m, thực tế 66m ngang 3.3m.
+- Kết cấu 2 tầng thông sàn, đang cho thuê 15tr/tháng.
+- Vị trí trung tâm Quận 5, sát Quận 1, Quận 10.
+- Pháp lý sạch sẽ sẽ, sổ vuông vức, hoàn công đủ, công chứng ngay.""", 
+2024-1-5, "LÊ HỒNG PHONG PHƯỜNG 2 QUẬN 5");
+
+
+INSERT INTO Real_Estate(Title,Price, Author, Type, Image, Area, Detail, DateCreate, Address) 
+VALUES("BÁN ĐẤT Ở BÌNH PHAN",530000000,"Nguyễn Văn A", "Bất Động Sản","https://cdn.batdongsan.vn/queue/upload/file/realestate/2023/12/199095/638379/14-168-82-229-dat.jpg",
+985, """BÁN ĐẤT Ở BÌNH PHAN 1000M2 , CHỢ GẠO, TIỀN GIANG, GẦN BỜ SÔNG GIA ĐÌNH CẦN BÁN GẤP Ạ, GIÁ CẢ CÓ THỂ THƯƠNG LƯỢNG""", 2023-9-8, "XÃ BÌNH PHAN ,Huyên Chơ Gạo tỉnh Tiền Giang");
+
+INSERT INTO Real_Estate(Title,Price, Author, Type, Image, Area, Detail, DateCreate, Address) 
+VALUES("CHỦ GẤP BÁN TRƯỚC TẾT LÊ HỒNG PHONG QUẬN 5 RA MẶT TIỀN ĐƯỜNG 15M",7350000000,"Phước Hân", "Bất Động Sản","https://cdn.batdongsan.vn/queue/upload/file/realestate/2023/12/199094/638378/113-172-162-253-58.jpg",
+41, """Diện tích công nhận 41m, thực tế 66m ngang 3.3m.
+- Kết cấu 2 tầng thông sàn, đang cho thuê 15tr/tháng.
+- Vị trí trung tâm Quận 5, sát Quận 1, Quận 10.
+- Pháp lý sạch sẽ sẽ, sổ vuông vức, hoàn công đủ, công chứng ngay.""", 
+2024-1-5, "LÊ HỒNG PHONG PHƯỜNG 2 QUẬN 5");
+
+
+INSERT INTO Real_Estate(Title,Price, Author, Type, Image, Area, Detail, DateCreate, Address) 
+VALUES("BÁN ĐẤT Ở BÌNH PHAN",530000000,"Nguyễn Văn A", "Bất Động Sản","https://cdn.batdongsan.vn/queue/upload/file/realestate/2023/12/199095/638379/14-168-82-229-dat.jpg",
+985, """BÁN ĐẤT Ở BÌNH PHAN 1000M2 , CHỢ GẠO, TIỀN GIANG, GẦN BỜ SÔNG GIA ĐÌNH CẦN BÁN GẤP Ạ, GIÁ CẢ CÓ THỂ THƯƠNG LƯỢNG""", 2023-9-8, "XÃ BÌNH PHAN ,Huyên Chơ Gạo tỉnh Tiền Giang");
+
+INSERT INTO Real_Estate(Title,Price, Author, Type, Image, Area, Detail, DateCreate, Address) 
+VALUES("CHỦ GẤP BÁN TRƯỚC TẾT LÊ HỒNG PHONG QUẬN 5 RA MẶT TIỀN ĐƯỜNG 15M",7350000000,"Phước Hân", "Bất Động Sản","https://cdn.batdongsan.vn/queue/upload/file/realestate/2023/12/199094/638378/113-172-162-253-58.jpg",
+41, """Diện tích công nhận 41m, thực tế 66m ngang 3.3m.
+- Kết cấu 2 tầng thông sàn, đang cho thuê 15tr/tháng.
+- Vị trí trung tâm Quận 5, sát Quận 1, Quận 10.
+- Pháp lý sạch sẽ sẽ, sổ vuông vức, hoàn công đủ, công chứng ngay.""", 
+2024-1-5, "LÊ HỒNG PHONG PHƯỜNG 2 QUẬN 5");

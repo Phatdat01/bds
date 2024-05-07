@@ -14,7 +14,7 @@ session_start();
 
 		if ($conn->connect_error) {
 		    die("Connection failed: " . $conn->connect_error);
-		} 
+		}
 
 		$sql = "USE Real_Estate";
 		$conn->query($sql);
@@ -79,11 +79,17 @@ echo '<blockquote>';
 	echo "<table id='myTable' style='width:80%; float:left'>";
 	echo "<tr>";
     while($row = $result->fetch_assoc()) {
+		$price = $row["Price"];
+		if ($price >= 1000000000) {
+			$price = $price/1000000000 . " tỉ";
+		} elseif ($price > 1000000) {
+			$price = $price/1000000 . " tr";
+		}
+
 	    echo "<td>";
 	    echo "<table>";
-	   	echo '<tr><td>'.'<img src="'.$row["Image"].'"width="80%">'.'</td></tr><tr><td style="padding: 5px;">Title: '.$row["Title"].'</td></tr><tr><td style="padding: 5px;">Author: '.$row["Author"].'</td></tr><tr><td style="padding: 5px;">Area: '.$row["Area"].'</td></tr><tr><td style="padding: 5px;">RM'.$row["Price"].'</td></tr><tr><td style="padding: 5px;">
+	   	echo '<tr><td width="200px">'.'<img src="'.$row["Image"].'"width="100%" height="300ph">'.'</td></tr><tr><td style="padding: 5px; font-weight: bold;">'.$row["Title"].'</td></tr><tr><td style="padding: 5px;">Author: '.$row["Author"].'</td></tr><tr><td style="padding: 5px;">Area: '.$row["Area"].' m&sup2</td></tr><tr><td style="padding: 5px;">Price: '.$price.'</td></tr><tr><td style="padding: 5px;">
 	   	<form action="" method="post">
-	   	Quantity: <input type="number" value="1" name="quantity" style="width: 20%"/><br>
 	   	<input type="hidden" value="'.$row['ID'].'" name="ac"/>
 	   	<input class="button" type="submit" value="Add to Cart"/>
 	   	</form></td></tr>';
@@ -102,13 +108,13 @@ echo '<blockquote>';
     while($row = $result->fetch_assoc()){
     	echo "<tr><td>";
     	echo '<img src="'.$row["Image"].'"width="20%"><br>';
-    	echo $row['Title']."<br>RM".$row['Price']."<br>";
-    	echo "Area: ".$row['Area']."<br>";
-    	echo "Price: RM".$row['Price']."</td></tr>";
+    	echo $row['Title']."<br> Price: ".$row['Price']."<br>";
+    	echo "Area: ".$row['Area']." m&sup2<br>";
+    	echo "Price: ".$row['Price']."</td></tr>";
     	$total += $row['Price'];
     }
-    echo "<tr><td style='text-align: right;background-color: #f2f2f2;''>";
-    echo "Total: <b>RM".$total."</b><center><form action='checkout.php' method='post'><input class='button' type='submit' name='checkout' value='CHECKOUT'></form></center>";
+    echo "<tr><td style=+'text-align: right;background-color: #f2f2f2;''>";
+    echo "Total: <b>Price: ".$total."</b><center><form action='checkout.php' method='post'><input class='button' type='submit' name='checkout' value='CHECKOUT'></form></center>";
     echo "</td></tr>";
 	echo "</table>";
 	echo '</blockquote>';
