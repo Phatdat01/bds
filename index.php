@@ -16,20 +16,11 @@ session_start();
 		    die("Connection failed: " . $conn->connect_error);
 		} 
 
-		$sql = "USE bookstore";
+		$sql = "USE Real_Estate";
 		$conn->query($sql);
 
-		$sql = "SELECT * FROM book WHERE BookID = '".$_POST['ac']."'";
+		$sql = "SELECT * FROM Real_Estate WHERE ID = '".$_POST['ac']."'";
 		$result = $conn->query($sql);
-
-		while($row = $result->fetch_assoc()){
-			$bookID = $row['BookID'];
-			$quantity = $_POST['quantity'];
-			$price = $row['Price'];
-		}
-
-		$sql = "INSERT INTO cart(BookID, Quantity, Price, TotalPrice) VALUES('".$bookID."', ".$quantity.", ".$price.", Price * Quantity)";
-		$conn->query($sql);
 	}
 
 	if(isset($_POST['delc'])){
@@ -43,10 +34,7 @@ session_start();
 		    die("Connection failed: " . $conn->connect_error);
 		} 
 
-		$sql = "USE bookstore";
-		$conn->query($sql);
-
-		$sql = "DELETE FROM cart";
+		$sql = "USE Real_Estate";
 		$conn->query($sql);
 	}
 
@@ -60,10 +48,10 @@ session_start();
 	    die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "USE bookstore";
+	$sql = "USE Real_Estate";
 	$conn->query($sql);	
 
-	$sql = "SELECT * FROM book";
+	$sql = "SELECT * FROM Real_Estate";
 	$result = $conn->query($sql);
 ?>	
 
@@ -93,10 +81,10 @@ echo '<blockquote>';
     while($row = $result->fetch_assoc()) {
 	    echo "<td>";
 	    echo "<table>";
-	   	echo '<tr><td>'.'<img src="'.$row["Image"].'"width="80%">'.'</td></tr><tr><td style="padding: 5px;">Title: '.$row["BookTitle"].'</td></tr><tr><td style="padding: 5px;">ISBN: '.$row["ISBN"].'</td></tr><tr><td style="padding: 5px;">Author: '.$row["Author"].'</td></tr><tr><td style="padding: 5px;">Type: '.$row["Type"].'</td></tr><tr><td style="padding: 5px;">RM'.$row["Price"].'</td></tr><tr><td style="padding: 5px;">
+	   	echo '<tr><td>'.'<img src="'.$row["Image"].'"width="80%">'.'</td></tr><tr><td style="padding: 5px;">Title: '.$row["Title"].'</td></tr><tr><td style="padding: 5px;">Author: '.$row["Author"].'</td></tr><tr><td style="padding: 5px;">Area: '.$row["Area"].'</td></tr><tr><td style="padding: 5px;">RM'.$row["Price"].'</td></tr><tr><td style="padding: 5px;">
 	   	<form action="" method="post">
 	   	Quantity: <input type="number" value="1" name="quantity" style="width: 20%"/><br>
-	   	<input type="hidden" value="'.$row['BookID'].'" name="ac"/>
+	   	<input type="hidden" value="'.$row['ID'].'" name="ac"/>
 	   	<input class="button" type="submit" value="Add to Cart"/>
 	   	</form></td></tr>';
 	   	echo "</table>";
@@ -105,7 +93,7 @@ echo '<blockquote>';
     echo "</tr>";
     echo "</table>";
 
-	$sql = "SELECT book.BookTitle, book.Image, cart.Price, cart.Quantity, cart.TotalPrice FROM book,cart WHERE book.BookID = cart.BookID;";
+	$sql = "SELECT Real_Estate.Title, Real_Estate.Image, Real_Estate.Price, Real_Estate.Area, Real_Estate.Price FROM Real_Estate";
 	$result = $conn->query($sql);
 
     echo "<table style='width:20%; float:right;'>";
@@ -114,10 +102,10 @@ echo '<blockquote>';
     while($row = $result->fetch_assoc()){
     	echo "<tr><td>";
     	echo '<img src="'.$row["Image"].'"width="20%"><br>';
-    	echo $row['BookTitle']."<br>RM".$row['Price']."<br>";
-    	echo "Quantity: ".$row['Quantity']."<br>";
-    	echo "Total Price: RM".$row['TotalPrice']."</td></tr>";
-    	$total += $row['TotalPrice'];
+    	echo $row['Title']."<br>RM".$row['Price']."<br>";
+    	echo "Area: ".$row['Area']."<br>";
+    	echo "Price: RM".$row['Price']."</td></tr>";
+    	$total += $row['Price'];
     }
     echo "<tr><td style='text-align: right;background-color: #f2f2f2;''>";
     echo "Total: <b>RM".$total."</b><center><form action='checkout.php' method='post'><input class='button' type='submit' name='checkout' value='CHECKOUT'></form></center>";
