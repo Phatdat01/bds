@@ -90,33 +90,14 @@ echo '<blockquote>';
 	    echo "<table>";
 	   	echo '<tr><td width="200px">'.'<img src="'.$row["Image"].'"width="100%" height="300ph">'.'</td></tr><tr><td style="padding: 5px; font-weight: bold;">'.$row["Title"].'</td></tr><tr><td style="padding: 5px;">Author: '.$row["Author"].'</td></tr><tr><td style="padding: 5px;">Area: '.$row["Area"].' m&sup2</td></tr><tr><td style="padding: 5px;">Price: '.$price.'</td></tr><tr><td style="padding: 5px;">
 	   	<form action="" method="post">
-	   	<input type="hidden" value="'.$row['ID'].'" name="ac"/>
-	   	<input class="button" type="submit" value="Add to Cart"/>
-	   	</form></td></tr>';
-	   	echo "</table>";
+	   	<input type="hidden" value="'.$row['ID'].'" name="ac"/>';
+	   	// <input class="button" type="submit" value="Add to Cart"/>
+	   	echo '</form></td></tr>';
+	   	echo "</table>"; 
 	   	echo "</td>";
     }
     echo "</tr>";
     echo "</table>";
-
-	$sql = "SELECT Real_Estate.Title, Real_Estate.Image, Real_Estate.Price, Real_Estate.Area, Real_Estate.Price FROM Real_Estate";
-	$result = $conn->query($sql);
-
-    echo "<table style='width:20%; float:right;'>";
-    echo "<th style='text-align:left;'><i class='fa fa-shopping-cart' style='font-size:24px'></i> Cart <form style='float:right;' action='' method='post'><input type='hidden' name='delc'/><input class='cbtn' type='submit' value='Empty Cart'></form></th>";
-    $total = 0;
-    while($row = $result->fetch_assoc()){
-    	echo "<tr><td>";
-    	echo '<img src="'.$row["Image"].'"width="20%"><br>';
-    	echo $row['Title']."<br> Price: ".$row['Price']."<br>";
-    	echo "Area: ".$row['Area']." m&sup2<br>";
-    	echo "Price: ".$row['Price']."</td></tr>";
-    	$total += $row['Price'];
-    }
-    echo "<tr><td style=+'text-align: right;background-color: #f2f2f2;''>";
-    echo "Total: <b>Price: ".$total."</b><center><form action='checkout.php' method='post'><input class='button' type='submit' name='checkout' value='CHECKOUT'></form></center>";
-    echo "</td></tr>";
-	echo "</table>";
 	echo '</blockquote>';
 ?>
 </body>
