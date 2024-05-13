@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 											}
 
 											$sql = "INSERT INTO customer(CustomerName, CustomerPhone, CustomerEmail, CustomerAddress, CustomerGender, UserID) 
-											VALUES('".$name."', '".$contact."', '".$ic."', '".$email."', '".$address."', '".$gender."', ".$id.")";
+											VALUES('".$name."', '".$contact."', '".$email."', '".$address."', '".$gender."', ".$id.")";
 											$conn->query($sql);
 
 											header("Location:index.php");
