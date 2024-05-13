@@ -1,5 +1,5 @@
 <html>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="static/css/style.css">
 <body>
 <header>
 <blockquote>
