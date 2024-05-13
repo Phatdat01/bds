@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 											    die("Connection failed: " . $conn->connect_error);
 											} 
 
-											$sql = "USE bookstore";
+											$sql = "USE real_estate";
 											$conn->query($sql);
 
 											$sql = "INSERT INTO users(UserName, Password) VALUES('".$uname."', '".$upassword."')";
@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 												$id = $row['UserID'];
 											}
 
-											$sql = "INSERT INTO customer(CustomerName, CustomerPhone, CustomerIC, CustomerEmail, CustomerAddress, CustomerGender, UserID) 
+											$sql = "INSERT INTO customer(CustomerName, CustomerPhone, CustomerEmail, CustomerAddress, CustomerGender, UserID) 
 											VALUES('".$name."', '".$contact."', '".$ic."', '".$email."', '".$address."', '".$gender."', ".$id.")";
 											$conn->query($sql);
 
@@ -105,7 +105,7 @@ function test_input($data){
 <body>
 <header>
 <blockquote>
-	<a href="index.php"><img src="image/logo.png"></a>
+	<a href="index.php"><img src="image/icon.png"></a>
 </blockquote>
 </header>
 <blockquote>

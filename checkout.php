@@ -2,7 +2,7 @@
 <body style="font-family:Arial; margin: 0 auto; background-color: #f2f2f2;">
 <header>
 <blockquote>
-	<img src="image/logo.png">
+	<img src="image/icon.png">
 	<input class="hi" style="float: right; margin: 2%;" type="button" name="cancel" value="Home" onClick="window.location='index.php';" />
 </blockquote>
 </header>
@@ -318,7 +318,7 @@ if(isset($_POST['submitButton'])){
 	$sql = "USE bookstore";
 	$conn->query($sql);
 
-	$sql = "SELECT customer.CustomerName, customer.CustomerIC, customer.CustomerGender, customer.CustomerAddress, customer.CustomerEmail, customer.CustomerPhone, book.BookTitle, book.Price, book.Image, `order`.`DatePurchase`, `order`.`Quantity`, `order`.`TotalPrice`
+	$sql = "SELECT customer.CustomerName, customer.CustomerGender, customer.CustomerAddress, customer.CustomerEmail, customer.CustomerPhone, book.BookTitle, book.Price, book.Image, `order`.`DatePurchase`, `order`.`Quantity`, `order`.`TotalPrice`
 		FROM customer, book, `order`
 		WHERE `order`.`CustomerID` = customer.CustomerID AND `order`.`BookID` = book.BookID AND `order`.`Status` = 'N' AND `order`.`CustomerID` = ".$cID."";
 	$result = $conn->query($sql);
@@ -328,14 +328,13 @@ if(isset($_POST['submitButton'])){
 	echo "<th></th></tr>";
 	$row = $result->fetch_assoc();
 	echo "<tr><td>Name: </td><td>".$row['CustomerName']."</td></tr>";
-	echo "<tr><td>No.Number: </td><td>".$row['CustomerIC']."</td></tr>";
 	echo "<tr><td>E-mail: </td><td>".$row['CustomerEmail']."</td></tr>";
 	echo "<tr><td>Mobile Number: </td><td>".$row['CustomerPhone']."</td></tr>";
 	echo "<tr><td>Gender: </td><td>".$row['CustomerGender']."</td></tr>";
 	echo "<tr><td>Address: </td><td>".$row['CustomerAddress']."</td></tr>";
 	echo "<tr><td>Date: </td><td>".$row['DatePurchase']."</td></tr>";
 
-	$sql = "SELECT customer.CustomerName, customer.CustomerIC, customer.CustomerGender, customer.CustomerAddress, customer.CustomerEmail, customer.CustomerPhone, book.BookTitle, book.Price, book.Image, `order`.`DatePurchase`, `order`.`Quantity`, `order`.`TotalPrice`
+	$sql = "SELECT customer.CustomerName, customer.CustomerGender, customer.CustomerAddress, customer.CustomerEmail, customer.CustomerPhone, book.BookTitle, book.Price, book.Image, `order`.`DatePurchase`, `order`.`Quantity`, `order`.`TotalPrice`
 		FROM customer, book, `order`
 		WHERE `order`.`CustomerID` = customer.CustomerID AND `order`.`BookID` = book.BookID AND `order`.`Status` = 'N' AND `order`.`CustomerID` = ".$cID."";
 	$result = $conn->query($sql);

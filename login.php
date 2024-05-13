@@ -3,7 +3,7 @@
 <body>
 <header>
 <blockquote>
-    <a href="index.php"><img src="image/logo.png"></a>
+    <a href="index.php"><img src="image/icon.png"></a>
 </blockquote>
 </header>
 <blockquote>

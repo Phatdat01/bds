@@ -59,7 +59,7 @@ session_start();
 if(isset($_SESSION['id'])){
 	echo '<header>';
 	echo '<blockquote>';
-	echo '<a href="index.php"><img src="image/logo.png"></a>';
+	echo '<a href="index.php"><img src="image/icon.png"></a>';
 	echo '<form class="hf" action="logout.php"><input class="hi" type="submit" name="submitButton" value="Logout"></form>';
 	echo '<form class="hf" action="edituser.php"><input class="hi" type="submit" name="submitButton" value="Edit Profile"></form>';
 	echo '</blockquote>';
@@ -69,7 +69,7 @@ if(isset($_SESSION['id'])){
 if(!isset($_SESSION['id'])){
 	echo '<header>';
 	echo '<blockquote>';
-	echo '<a href="index.php"><img src="image/logo.png"></a>';
+	echo '<a href="index.php"><img src="image/icon.png"></a>';
 	echo '<form class="hf" action="Register.php"><input class="hi" type="submit" name="submitButton" value="Register"></form>';
 	echo '<form class="hf" action="login.php"><input class="hi" type="submit" name="submitButton" value="Login"></form>';
 	echo '</blockquote>';
