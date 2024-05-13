@@ -20,7 +20,7 @@ if(isset($_SESSION['id'])){
 	    die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "USE bookstore";
+	$sql = "USE real_estate";
 	$conn->query($sql);
 
 	$sql = "SELECT CustomerID from customer WHERE UserID = ".$_SESSION['id']."";
@@ -35,17 +35,17 @@ if(isset($_SESSION['id'])){
 	$sql = "SELECT * FROM cart";
 	$result = $conn->query($sql);
 	while($row = $result->fetch_assoc()){
-		$sql = "INSERT INTO `order`(CustomerID, BookID, DatePurchase, Quantity, TotalPrice, Status) 
-		VALUES(".$row['CustomerID'].", '".$row['BookID']
-		."', CURRENT_TIME, ".$row['Quantity'].", ".$row['TotalPrice'].", 'N')";
+		$sql = "INSERT INTO `order`(CustomerID, ID, DatePurchase, Quantity, Price, Status) 
+		VALUES(".$row['CustomerID'].", '".$row['ID']
+		."', CURRENT_TIME, ".$row['Quantity'].", ".$row['Price'].", 'N')";
 		$conn->query($sql);
 	}
 	$sql = "DELETE FROM cart";
 	$conn->query($sql);
 
-	$sql = "SELECT customer.CustomerName, customer.CustomerIC, customer.CustomerGender, customer.CustomerAddress, customer.CustomerEmail, customer.CustomerPhone, book.BookTitle, book.Price, book.Image, `order`.`DatePurchase`, `order`.`Quantity`, `order`.`TotalPrice`
-		FROM customer, book, `order`
-		WHERE `order`.`CustomerID` = customer.CustomerID AND `order`.`BookID` = book.BookID AND `order`.`Status` = 'N' AND `order`.`CustomerID` = ".$cID."";
+	$sql = "SELECT customer.CustomerName, customer.CustomerIC, customer.CustomerGender, customer.CustomerAddress, customer.CustomerEmail, customer.CustomerPhone, real_estate.Title, real_estate.Price, real_estate.Image, `order`.`DatePurchase`, `order`.`Quantity`, `order`.`Price`
+		FROM customer, real_estate, `order`
+		WHERE `order`.`CustomerID` = customer.CustomerID AND `order`.`ID` = real_estate.ID AND `order`.`Status` = 'N' AND `order`.`CustomerID` = ".$cID."";
 	$result = $conn->query($sql);
 	echo '<div class="container">';
 	echo '<blockquote>';
@@ -77,7 +77,7 @@ if(isset($_SESSION['id'])){
     	echo $row['Title']."<br>RM".$row['Price']."<br>";
     	echo "Quantity: ".$row['Quantity']."<br>";
     	echo "</td></tr>";
-    	$total += $row['TotalPrice'];
+    	$total += $row['Price'];
 	}
 	echo "<tr><td style='background-color: #ccc;'></td><td style='text-align: right;background-color: #ccc;''>Total Price: <b>RM".$total."</b></td></tr>";
 	echo "</table>";
@@ -138,7 +138,7 @@ if(isset($_POST['submitButton'])){
 									    die("Connection failed: " . $conn->connect_error);
 									} 
 
-									$sql = "USE bookstore";
+									$sql = "USE real_estate";
 									$conn->query($sql);
 
 									$sql = "INSERT INTO customer(CustomerName, CustomerPhone, CustomerIC, CustomerEmail, CustomerAddress, CustomerGender) 
@@ -157,9 +157,9 @@ if(isset($_POST['submitButton'])){
 									$sql = "SELECT * FROM cart";
 									$result = $conn->query($sql);
 									while($row = $result->fetch_assoc()){
-										$sql = "INSERT INTO `order`(CustomerID, BookID, DatePurchase, Quantity, TotalPrice, Status) 
-										VALUES(".$row['CustomerID'].", '".$row['BookID']
-										."', CURRENT_TIME, ".$row['Quantity'].", ".$row['TotalPrice'].", 'N')";
+										$sql = "INSERT INTO `order`(CustomerID, ID, DatePurchase, Quantity, Price, Status) 
+										VALUES(".$row['CustomerID'].", '".$row['ID']
+										."', CURRENT_TIME, ".$row['Quantity'].", ".$row['Price'].", 'N')";
 										$conn->query($sql);
 									}
 									$sql = "DELETE FROM cart";
@@ -305,12 +305,12 @@ if(isset($_POST['submitButton'])){
 	    die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "USE bookstore";
+	$sql = "USE real_estate";
 	$conn->query($sql);
 
-	$sql = "SELECT customer.CustomerName, customer.CustomerGender, customer.CustomerAddress, customer.CustomerEmail, customer.CustomerPhone, book.BookTitle, book.Price, book.Image, `order`.`DatePurchase`, `order`.`Quantity`, `order`.`TotalPrice`
-		FROM customer, book, `order`
-		WHERE `order`.`CustomerID` = customer.CustomerID AND `order`.`BookID` = book.BookID AND `order`.`Status` = 'N' AND `order`.`CustomerID` = ".$cID."";
+	$sql = "SELECT customer.CustomerName, customer.CustomerGender, customer.CustomerAddress, customer.CustomerEmail, customer.CustomerPhone, real_estate.Title, real_estate.Price, real_estate.Image, `order`.`DatePurchase`, `order`.`Quantity`, `order`.`Price`
+		FROM customer, real_estate, `order`
+		WHERE `order`.`CustomerID` = customer.CustomerID AND `order`.`ID` = real_estate.ID AND `order`.`Status` = 'N' AND `order`.`CustomerID` = ".$cID."";
 	$result = $conn->query($sql);
 
 	echo '<table style="width: 40%">';
@@ -324,18 +324,18 @@ if(isset($_POST['submitButton'])){
 	echo "<tr><td>Address: </td><td>".$row['CustomerAddress']."</td></tr>";
 	echo "<tr><td>Date: </td><td>".$row['DatePurchase']."</td></tr>";
 
-	$sql = "SELECT customer.CustomerName, customer.CustomerGender, customer.CustomerAddress, customer.CustomerEmail, customer.CustomerPhone, book.BookTitle, book.Price, book.Image, `order`.`DatePurchase`, `order`.`Quantity`, `order`.`TotalPrice`
-		FROM customer, book, `order`
-		WHERE `order`.`CustomerID` = customer.CustomerID AND `order`.`BookID` = book.BookID AND `order`.`Status` = 'N' AND `order`.`CustomerID` = ".$cID."";
+	$sql = "SELECT customer.CustomerName, customer.CustomerGender, customer.CustomerAddress, customer.CustomerEmail, customer.CustomerPhone, real_estate.Title, real_estate.Price, real_estate.Image, `order`.`DatePurchase`, `order`.`Quantity`, `order`.`Price`
+		FROM customer, real_estate, `order`
+		WHERE `order`.`CustomerID` = customer.CustomerID AND `order`.`ID` = real_estate.ID AND `order`.`Status` = 'N' AND `order`.`CustomerID` = ".$cID."";
 	$result = $conn->query($sql);
 	$total = 0;
 	while($row = $result->fetch_assoc()){
 		echo "<tr><td style='border-top: 2px solid #ccc;'>";
 		echo '<img src="'.$row["Image"].'"width="20%"></td><td style="border-top: 2px solid #ccc;">';
-    	echo $row['BookTitle']."<br>RM".$row['Price']."<br>";
+    	echo $row['Title']."<br>RM".$row['Price']."<br>";
     	echo "Quantity: ".$row['Quantity']."<br>";
     	echo "</td></tr>";
-    	$total += $row['TotalPrice'];
+    	$total += $row['Price'];
 	}
 	echo "<tr><td style='background-color: #ccc;'></td><td style='text-align: right;background-color: #ccc;'>Total Price: <b>RM".$total."</b></td></tr>";
 	echo "</table>";
