@@ -21,7 +21,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "USE bookstore";
+$sql = "USE real_estate";
 $conn->query($sql);
 
 $sql = "SELECT users.UserName, users.Password, customer.CustomerName, customer.CustomerEmail, customer.CustomerPhone, customer.CustomerGender, customer.CustomerAddress
@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 											    die("Connection failed: " . $conn->connect_error);
 											} 
 
-											$sql = "USE bookstore";
+											$sql = "USE real_estate";
 											$conn->query($sql);
 
 											$sql = "UPDATE users SET UserName = '".$uname."', Password = '".$upassword."' WHERE UserID = "
@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 											$conn->query($sql);
 
 											$sql = "UPDATE customer SET CustomerName = '".$name."', CustomerPhone = '".$contact."', 
-											CustomerIC = '".$ic."', CustomerEmail = '".$email."', CustomerAddress = '".$address."', 
+											CustomerEmail = '".$email."', CustomerAddress = '".$address."', 
 											CustomerGender = '".$gender."'";
 											$conn->query($sql);
 
@@ -131,11 +131,11 @@ function test_input($data){
 }
 ?>
 <html>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="static/css/style.css">
 <body>
 <header>
 <blockquote>
-	<a href="index.php"><img src="image/logo.png"></a>
+	<a href="index.php"><img src="image/icon.png"></a>
 </blockquote>
 </header>
 <blockquote>

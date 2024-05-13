@@ -1,9 +1,9 @@
 <html>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="static/css/style.css">
 <body>
 <header>
 <blockquote>
-    <a href="index.php"><img src="image/logo.png"></a>
+    <a href="index.php"><img src="image/icon.png"></a>
 </blockquote>
 </header>
 <blockquote>
