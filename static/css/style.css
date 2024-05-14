@@ -58,6 +58,10 @@ table .btn:hover{
     color: #ec7115;
 }
 
+tbody tr td{
+    vertical-align: top;
+}
+
 .button{
     background-color: rgb(0,51,102);
     border: none;
